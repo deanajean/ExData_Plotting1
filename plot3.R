@@ -21,12 +21,10 @@
 #unlink(temp)
 ###
 library(downloader)
-library(sqldf)
+library(sqldf))
 
 
 #download and unzip, might this be combined?
-url <- "http://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
-
 download(url, dest="hpc.zip", mode="wb") 
 unzip ("hpc.zip")
 powers <- read.csv.sql("household_power_consumption.txt", sql = 'select * from file where Date = "1/2/2007" or Date = "2/2/2007"', sep = ";", header = TRUE)
